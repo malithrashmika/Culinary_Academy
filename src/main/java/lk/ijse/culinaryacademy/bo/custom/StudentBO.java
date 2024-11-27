@@ -8,8 +8,7 @@ import lk.ijse.culinaryacademy.exception.InUseException;
 import java.util.List;
 
 public interface StudentBO extends SuperBO {
-    void deleteStudent(StudentDTO studentDTO) throws InUseException
-            ;
+    void deleteStudent(StudentDTO studentDTO) throws InUseException;
     void updateStudent(StudentDTO studentDTO);
     List<StudentDTO> getAllStudent();
     List<ProgramsDTO> getAllCulinaryProgram();
