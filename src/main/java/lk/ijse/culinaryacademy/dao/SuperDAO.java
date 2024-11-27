@@ -1,2 +1,4 @@
-package lk.ijse.culinaryacademy.dao;public interface SuperDAO {
+package lk.ijse.culinaryacademy.dao;
+
+public interface SuperDAO {
 }

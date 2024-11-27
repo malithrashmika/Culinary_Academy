@@ -1,16 +1,17 @@
-package lk.ijse.dto;
+package lk.ijse.culinaryacademy.dto;
 
-import lk.ijse.entity.Enrollment;
+import lk.ijse.culinaryacademy.entity.Enrollment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CulinaryProgramDTO {
+public class ProgramsDTO {
     private String programId;
     private String programName;
     private int duration;

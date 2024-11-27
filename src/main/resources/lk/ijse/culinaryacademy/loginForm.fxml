@@ -10,30 +10,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="fullLoginForm" prefHeight="758.0" prefWidth="445.0" style="-fx-background-color: #E2A76F;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="fullLoginForm" prefHeight="475.0" prefWidth="678.0" style="-fx-background-color: #d3ae71;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="533.0" fitWidth="364.0" layoutX="35.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="364.0" fitWidth="315.0" layoutX="24.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@asset/theCulinaryLogin.jpeg" />
+            <Image url="@asset/Leonardo_Phoenix_A_circular_logo_for_a_culinary_academy_featur_2.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="loginForm" layoutX="45.0" layoutY="430.0" prefHeight="296.0" prefWidth="344.0" style="-fx-background-color: #CA762B;">
+      <AnchorPane fx:id="loginForm" layoutX="356.0" layoutY="111.0" prefHeight="315.0" prefWidth="298.0" style="-fx-background-color: #5f6041;">
          <children>
-            <TextField fx:id="inputUserName" layoutX="60.0" layoutY="93.0" onAction="#inputUserNameOnAction" prefHeight="32.0" prefWidth="239.0" promptText="User Name" style="-fx-background-radius: 10;" />
-            <Label layoutX="121.0" layoutY="14.0" text="Login">
+            <TextField fx:id="inputUserName" layoutX="30.0" layoutY="93.0" onAction="#inputUserNameOnAction" prefHeight="32.0" prefWidth="239.0" promptText="User Name" style="-fx-background-radius: 10;" />
+            <Label layoutX="100.0" layoutY="14.0" text="Login">
                <font>
                   <Font name="DejaVu Serif Condensed Bold" size="35.0" />
                </font>
             </Label>
-            <PasswordField fx:id="inputPassword" layoutX="59.0" layoutY="149.0" onAction="#inputPasswordOnAction" prefHeight="32.0" prefWidth="239.0" promptText="Password" style="-fx-background-radius: 10;" />
-            <Button layoutX="116.0" layoutY="208.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="32.0" prefWidth="127.0" style="-fx-background-color: #3B2F2F;" text="LOGIN" textFill="WHITE" />
-            <Text layoutX="60.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Text layoutX="221.0" layoutY="269.0" onMouseClicked="#goToSignUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" underline="true">
+            <PasswordField fx:id="inputPassword" layoutX="30.0" layoutY="148.0" onAction="#inputPasswordOnAction" prefHeight="32.0" prefWidth="239.0" promptText="Password" style="-fx-background-radius: 10;" />
+            <Button layoutX="86.0" layoutY="208.0" mnemonicParsing="false" onAction="#loginOnAction" prefHeight="32.0" prefWidth="127.0" style="-fx-background-color: #2c120e;" text="LOGIN" textFill="WHITE" />
+            <Text layoutX="53.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
+            <Text layoutX="189.0" layoutY="267.0" onMouseClicked="#goToSignUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" underline="true">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
+      <Text fill="#c70c44" fontSmoothingType="LCD" layoutX="14.0" layoutY="70.0" stroke="#e43c71" strokeType="OUTSIDE" strokeWidth="2.0" text="Welcome to CULINARY ACADEMY" textAlignment="CENTER" wrappingWidth="650.7809410095215">
+         <font>
+            <Font name="Comic Sans MS" size="38.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

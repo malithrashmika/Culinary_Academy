@@ -1,2 +1,4 @@
-package lk.ijse.culinaryacademy.tdm;public class UserTm {
+package lk.ijse.culinaryacademy.tdm;
+
+public class UserTm {
 }

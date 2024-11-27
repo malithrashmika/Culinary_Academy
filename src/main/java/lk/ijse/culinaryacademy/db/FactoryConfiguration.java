@@ -1,16 +1,13 @@
-package lk.ijse.db;
-
-import lk.ijse.entity.CulinaryProgram;
-import lk.ijse.entity.Enrollment;
-import lk.ijse.entity.Student;
-import lk.ijse.entity.User;
+package lk.ijse.culinaryacademy.db;
+import lk.ijse.culinaryacademy.entity.Enrollment;
+import lk.ijse.culinaryacademy.entity.Programs;
+import lk.ijse.culinaryacademy.entity.Student;
+import lk.ijse.culinaryacademy.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 
 public class FactoryConfiguration {
@@ -25,7 +22,7 @@ public class FactoryConfiguration {
             Configuration configuration = new Configuration();
             configuration.setProperties(properties)
                     .addAnnotatedClass(User.class)
-                    .addAnnotatedClass(CulinaryProgram.class)
+                    .addAnnotatedClass(Programs.class)
                     .addAnnotatedClass(Enrollment.class)
                     .addAnnotatedClass(Student.class);
             sessionFactory = configuration.buildSessionFactory();

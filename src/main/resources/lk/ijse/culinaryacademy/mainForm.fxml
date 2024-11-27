@@ -8,33 +8,33 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardFrom" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="dashboardFrom" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #6F61C0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.MainFormController">
    <children>
       <AnchorPane fx:id="changeForm" layoutX="219.0" layoutY="10.0" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #FFE5B4;" />
       <ImageView fitHeight="254.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@asset/logo-removebg-preview%20(1).png" />
+            <Image url="@asset/Leonardo_Phoenix_A_circular_logo_for_a_culinary_academy_featur_2.jpg" />
          </image>
       </ImageView>
       <VBox layoutX="12.0" layoutY="240.0" prefHeight="259.0" prefWidth="195.0">
          <children>
-            <JFXButton fx:id="btnDashboard" onAction="#btnDashboardOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #CA762B; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 10;" text="Dashboard" textFill="WHITE">
+            <JFXButton fx:id="btnDashboard" onAction="#btnDashboardOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #03001C; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 10;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btnStudent" onAction="#btnStudentOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #E2A76F; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Student">
+            <JFXButton fx:id="btnStudent" buttonType="RAISED" onAction="#btnStudentOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #CDC1FF; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Student">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btnProgram" onAction="#btnProgramOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #E2A76F; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Programs">
+            <JFXButton fx:id="btnProgram" onAction="#btnProgramOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #CDC1FF; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Programs">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btnView" onAction="#btnViewOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #E2A76F; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="View All">
+            <JFXButton fx:id="btnView" onAction="#btnViewOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #CDC1FF; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="View All">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btnSetting" onAction="#btnSettingOnAction" prefHeight="50.0" prefWidth="195.0" style="-fx-border-color: white; -fx-background-color: #E2A76F; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="Setting">
+            <JFXButton fx:id="btnSetting" onAction="#btnSettingOnAction" prefHeight="50.0" prefWidth="195.0" style="-fx-border-color: white; -fx-background-color: #CDC1FF; -fx-border-width: 3; -fx-background-radius: 10; -fx-border-radius: 5;" text="Setting">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                </font>

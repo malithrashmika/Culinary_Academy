@@ -1,4 +1,4 @@
-package lk.ijse.dto;
+package lk.ijse.culinaryacademy.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

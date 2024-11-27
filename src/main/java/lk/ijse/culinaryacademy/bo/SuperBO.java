@@ -1,2 +1,4 @@
-package lk.ijse.culinaryacademy.bo;public interface SuperBO {
+package lk.ijse.culinaryacademy.bo;
+
+public interface SuperBO {
 }

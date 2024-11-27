@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signUpForm" prefHeight="296.0" prefWidth="344.0" style="-fx-background-color: #CA762B;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignUpFormController">
+<AnchorPane fx:id="signUpForm" prefHeight="296.0" prefWidth="344.0" style="-fx-background-color: #a68552;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.SignUpFormController">
    <children>
       <TextField fx:id="inputUserName" layoutX="53.0" layoutY="95.0" onAction="#inputUserNameOnAction" prefHeight="32.0" prefWidth="239.0" promptText="User Name" style="-fx-background-radius: 10;" />
       <Label layoutX="102.0" layoutY="23.0" text="Sign Up">
@@ -23,18 +23,20 @@
          <font>
             <Font name="DejaVu Serif Condensed Bold" size="15.0" />
          </font></Button>
-      <CheckBox fx:id="adminCheckBox" layoutX="43.0" layoutY="209.0" mnemonicParsing="false" onAction="#adminCheckBoxOnAction" text="Admin">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="admissionCheckBox" layoutX="131.0" layoutY="209.0" mnemonicParsing="false" onAction="#admissionCheckBoxOnAction" text="Admissions Coordinator">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font></CheckBox>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backToLoginOnAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@asset/icon/icons8-back-50.png" />
          </image>
       </ImageView>
+      <RadioButton fx:id="adminCheckBox" layoutX="34.0" layoutY="210.0" mnemonicParsing="false" onAction="#adminCheckBoxOnAction" text="Admin">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="15.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="admissionCheckBox" layoutX="127.0" layoutY="210.0" mnemonicParsing="false" onAction="#admissionCheckBoxOnAction" prefHeight="22.0" prefWidth="200.0" text="Admissions Coordinator">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>
