@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashboardForm" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #03001C;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.DashboardController">
+   <children>
+      <Label layoutX="113.0" layoutY="46.0" text="Dashboard" textFill="#ffaa43">
+         <font>
+            <Font name="DejaVu Serif Condensed Bold" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="45.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@asset/icon/visual-data.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="148.0" layoutY="115.0" prefHeight="122.0" prefWidth="172.0" style="-fx-background-radius: 20; -fx-background-color: #FF0060;">
+         <children>
+            <Label layoutX="27.0" layoutY="46.0" text="Total Student" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalStudent" alignment="CENTER" layoutX="62.0" layoutY="72.0" prefHeight="30.0" prefWidth="48.0" text="0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="35.0" layoutX="64.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@asset/icon/icons8-student-48.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Label layoutX="74.0" layoutY="295.0" text="Students studying all programs" textFill="#ffaa43" underline="true">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblStudyAll" layoutX="72.0" layoutY="350.0" prefHeight="198.0" prefWidth="627.0" style="-fx-background-color: #FDFFC2;">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="184.0" style="-fx-background-color: #94FFD8; -fx-font-color: #FF0060;" text="Student ID" />
+          <TableColumn fx:id="colName" prefWidth="259.0" style="-fx-background-color: #94FFD8;" text="Student Name" />
+            <TableColumn fx:id="colDate" prefWidth="183.0" style="-fx-background-color: #94FFD8;" text="Registration Date" />
+        </columns>
+      </TableView>
+      <Label layoutX="451.0" layoutY="579.0" text="Student Count : " textFill="#ffaa43">
+         <font>
+            <Font name="DejaVu Sans Mono Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStudentCount" alignment="CENTER" layoutX="630.0" layoutY="579.0" prefHeight="21.0" prefWidth="35.0" text="0" textFill="#ffaa43">
+         <font>
+            <Font name="DejaVu Sans Mono Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutX="458.0" layoutY="115.0" prefHeight="122.0" prefWidth="172.0" style="-fx-background-radius: 20; -fx-background-color: #FF0060;">
+         <children>
+            <Label layoutX="19.0" layoutY="46.0" text="Total Programs" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalPrograms" alignment="CENTER" layoutX="62.0" layoutY="72.0" prefHeight="30.0" prefWidth="48.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="35.0" layoutX="68.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@asset/icon/curriculum.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

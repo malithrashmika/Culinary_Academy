@@ -12,56 +12,56 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="settingForm" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #FFE5B4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SettingFormController">
+<AnchorPane fx:id="settingForm" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #03001C;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.SettingFormController">
    <children>
-      <Label layoutX="113.0" layoutY="46.0" text="Setting">
+      <Label layoutX="115.0" layoutY="41.0" text="Setting" textFill="#ffaa43">
          <font>
-            <Font name="DejaVu Serif Condensed Bold" size="30.0" />
+            <Font name="Comic Sans MS Bold" size="32.0" />
          </font>
       </Label>
       <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="45.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@asset/icon/icons8-setting-48.png" />
+            <Image url="@asset/icon/idea.png" />
          </image>
       </ImageView>
-      <Label layoutX="55.0" layoutY="129.0" text="Change User details">
+      <Label layoutX="55.0" layoutY="129.0" text="Change User details" textFill="#ffaa43">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="71.0" layoutY="177.0" text="User Name : ">
+      <Label layoutX="59.0" layoutY="177.0" prefHeight="22.0" prefWidth="106.0" text="User Name : " textFill="#ffaa43">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+            <Font name="Comic Sans MS Bold" size="14.0" />
          </font></Label>
       <TextField fx:id="txtUserName" layoutX="178.0" layoutY="173.0" onAction="#txtUserNameOnAction" />
-      <Label layoutX="391.0" layoutY="177.0" text="Password : ">
+      <Label layoutX="391.0" layoutY="177.0" text="Password : " textFill="#ffaa43">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+            <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
       <PasswordField fx:id="txtPassword" layoutX="528.0" layoutY="173.0" onAction="#txtPasswordOnAction" />
-      <Label layoutX="71.0" layoutY="219.0" text="New Password : ">
+      <Label layoutX="59.0" layoutY="219.0" prefHeight="22.0" prefWidth="126.0" text="New Password : " textFill="#ffaa43">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+            <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
       <PasswordField fx:id="txtNewPassword" layoutX="178.0" layoutY="215.0" onAction="#txtNewPasswordOnAction" />
-      <Label layoutX="391.0" layoutY="219.0" text="Confirm Password : ">
+      <Label layoutX="391.0" layoutY="219.0" text="Confirm Password : " textFill="#ffaa43">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+            <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
       <PasswordField fx:id="txtConfirmPassword" layoutX="528.0" layoutY="215.0" />
-      <JFXButton layoutX="622.0" layoutY="266.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="77.0" style="-fx-background-color: #1F45FC;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="622.0" layoutY="266.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="77.0" style="-fx-background-color: #C70039;" text="Update" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Condensed Bold" size="15.0" />
          </font>
       </JFXButton>
       <Pane fx:id="visiblePane" layoutX="49.0" layoutY="315.0" prefHeight="277.0" prefWidth="660.0">
          <children>
-            <Label layoutX="6.0" layoutY="14.0" text="Show User details">
+            <Label layoutX="6.0" layoutY="14.0" text="Show User details" textFill="#ffaa43">
                <font>
-                  <Font name="DejaVu Sans Condensed Bold" size="18.0" />
+                  <Font name="Comic Sans MS Bold" size="13.0" />
                </font>
             </Label>
             <TableView fx:id="tblUser" layoutX="96.0" layoutY="63.0" prefHeight="200.0" prefWidth="468.0">

@@ -25,11 +25,23 @@
             <Image url="@asset/icon/icons8-student-48.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtId" layoutX="128.0" layoutY="129.0" onAction="#txtIdOnAction" onKeyReleased="#txtIdKeyAction" prefHeight="35.0" prefWidth="92.0" />
+      <TextField fx:id="txtId" layoutX="128.0" layoutY="129.0" onAction="#txtIdOnAction" onKeyReleased="#txtIdKeyAction" prefHeight="35.0" prefWidth="92.0">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></TextField>
       <DatePicker fx:id="registerDatePicker" layoutX="514.0" layoutY="138.0" />
-      <TextField fx:id="txtName" layoutX="128.0" layoutY="195.0" onAction="#txtNameOnAction" onKeyReleased="#txtNameKeyAction" />
-      <TextField fx:id="txtTel" layoutX="128.0" layoutY="248.0" onKeyReleased="#txtTelKeyAction" />
-      <TextField fx:id="txtAddress" layoutX="128.0" layoutY="291.0" onAction="#txtAddressOnAction" onKeyReleased="#txtAddressKeyAction" prefHeight="46.0" prefWidth="582.0" />
+      <TextField fx:id="txtName" layoutX="128.0" layoutY="195.0" onAction="#txtNameOnAction" onKeyReleased="#txtNameKeyAction">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="txtTel" layoutX="128.0" layoutY="248.0" onKeyReleased="#txtTelKeyAction">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="txtAddress" layoutX="128.0" layoutY="291.0" onAction="#txtAddressOnAction" onKeyReleased="#txtAddressKeyAction" prefHeight="46.0" prefWidth="582.0">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></TextField>
       <TableView fx:id="tblStudent" layoutX="57.0" layoutY="410.0" onMouseClicked="#tblStudentOnClickAction" prefHeight="200.0" prefWidth="665.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="79.0" text="ID" />
@@ -43,7 +55,10 @@
       <Pane fx:id="visiblePane" layoutX="368.0" layoutY="188.0" prefHeight="108.0" prefWidth="345.0">
          <children>
             <ChoiceBox fx:id="programChoiceBox" layoutX="146.0" layoutY="10.0" prefHeight="24.0" prefWidth="198.0" />
-            <TextField fx:id="txtInstallment" layoutX="147.0" layoutY="54.0" onKeyReleased="#txtInstallmentKeyAction" prefHeight="24.0" prefWidth="198.0" />
+            <TextField fx:id="txtInstallment" layoutX="147.0" layoutY="54.0" onKeyReleased="#txtInstallmentKeyAction" prefHeight="24.0" prefWidth="198.0">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></TextField>
             <Label layoutX="17.0" layoutY="14.0" prefHeight="21.0" prefWidth="86.0" text="Programs : " textFill="#ffaa43">
                <font>
                   <Font name="Comic Sans MS Bold" size="14.0" />
@@ -81,22 +96,22 @@
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <JFXButton layoutX="341.0" layoutY="348.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #06D001;" text="Save" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="341.0" layoutY="348.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #06D001;" text="Save" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="439.0" layoutY="348.0" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #C70039;" text="Delete" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="439.0" layoutY="348.0" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #C70039;" text="Delete" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="536.0" layoutY="348.0" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #6F61C0;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="536.0" layoutY="348.0" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #6F61C0;" text="Update" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="632.0" layoutY="348.0" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #808080;" text="clear" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="632.0" layoutY="348.0" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #808080;" text="clear" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Bold" size="15.0" />
          </font>

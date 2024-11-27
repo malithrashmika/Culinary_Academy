@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addProgramForm" prefHeight="372.0" prefWidth="433.0" style="-fx-background-color: #F8FFDB; -fx-border-color: #A459D1; -fx-border-width: 4PX;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.AddProgramFormController">
+   <children>
+      <Label layoutX="151.0" layoutY="31.0" prefHeight="39.0" prefWidth="178.0" text="Add Program" textFill="#001d61">
+         <font>
+            <Font name="Comic Sans MS Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="105.0" text="Student ID : " textFill="#001d61">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="149.0" text="Student Name : " textFill="#001d61">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="192.0" text="Select Program : " textFill="#001d61">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="238.0" text="1 st Installment : " textFill="#001d61">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentId" editable="false" layoutX="193.0" layoutY="101.0" prefHeight="26.0" prefWidth="171.0" />
+      <TextField fx:id="txtStudentName" editable="false" layoutX="193.0" layoutY="145.0" prefHeight="26.0" prefWidth="171.0" />
+      <ChoiceBox fx:id="selectProgramChoiceBox" layoutX="193.0" layoutY="188.0" prefHeight="24.0" prefWidth="171.0" />
+      <TextField fx:id="txtInstallment" layoutX="193.0" layoutY="234.0" onKeyReleased="#txtInstallmentKeyAction" prefHeight="26.0" prefWidth="171.0" />
+      <JFXButton layoutX="240.0" layoutY="303.0" onAction="#btnSaveOnAction" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: #49FF00;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Condensed Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="111.0" layoutY="303.0" onAction="#btnCancelOnAction" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: #FF204E;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Condensed Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="88.0" layoutY="30.0">
+         <image>
+            <Image url="@asset/icon/11017676.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
