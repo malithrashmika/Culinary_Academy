@@ -1,21 +1,20 @@
-package lk.ijse.culinaryacademy.dto;
+package lk.ijse.culinaryacademy.tdm;
 
-import lk.ijse.culinaryacademy.entity.Enrollment;
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class StudentDTO {
+public class StudentTm {
     private String studentId;
     private String name;
     private String address;
     private Long tel;
     private Date registrationDate;
-    private List<Enrollment> enrollments;
+    private Button program;
 }

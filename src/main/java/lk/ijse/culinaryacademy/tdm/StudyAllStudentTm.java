@@ -1,15 +1,16 @@
 package lk.ijse.culinaryacademy.tdm;
 
-import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserTm {
-    private String userName;
-    private String role;
-    private Button delete;
+public class StudyAllStudentTm {
+    private String studentId;
+    private String name;
+    private Date registrationDate;
 }
