@@ -9,5 +9,5 @@ public interface CrudDAO<T> extends SuperDAO {
     void save(T t) throws UserAlreadyExistsException;
     void update(T t);
     void delete(T t) throws InUseException;
-    List<T>getAll(T t);
+    List<T>getAll();
 }

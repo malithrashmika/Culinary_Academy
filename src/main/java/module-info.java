@@ -5,6 +5,7 @@ module lk.ijse.culinaryacademy {
     requires static lombok;
     requires jakarta.persistence;
     requires com.jfoenix;
+    requires jbcrypt;
 
     opens lk.ijse.culinaryacademy to javafx.fxml;
     exports lk.ijse.culinaryacademy;

@@ -44,7 +44,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
     }
 
     @Override
-    public List<Programs> getAll(Programs programs) {
+    public List<Programs> getAll() {
         List<Programs> programsList;
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -84,7 +84,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
     }
 
     @Override
-    public Long getCulinaryProgramCount() {
+    public Long getProgramCount() {
         Long count = 0L;
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();

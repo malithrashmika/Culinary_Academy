@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface RegistrationBO extends SuperBO {
     void updateEnrollment(String studentId,String programName,double payment);
-
-    List<ProgramsDTO> getAllCulinaryProgram();
     List<Object[]> getAllEqualByProgramName(String programName);
 }

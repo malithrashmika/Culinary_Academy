@@ -2,12 +2,15 @@ package lk.ijse.culinaryacademy.bo.custom.impl;
 
 import lk.ijse.culinaryacademy.bo.custom.AcademicBO;
 import lk.ijse.culinaryacademy.dao.DAOFactory;
+import lk.ijse.culinaryacademy.dao.custom.EnrollmentDAO;
 import lk.ijse.culinaryacademy.dao.custom.ProgramsDAO;
+import lk.ijse.culinaryacademy.dao.custom.StudentDAO;
 import lk.ijse.culinaryacademy.dto.ProgramsDTO;
+import lk.ijse.culinaryacademy.entity.Enrollment;
 import lk.ijse.culinaryacademy.entity.Programs;
+import lk.ijse.culinaryacademy.entity.Student;
 import lk.ijse.culinaryacademy.exception.InUseException;
 import lk.ijse.culinaryacademy.exception.UserAlreadyExistsException;
-import lombok.val;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +18,8 @@ import java.util.List;
 public class AcademicBOImpl  implements AcademicBO {
 
     ProgramsDAO programsDAO= (ProgramsDAO) DAOFactory.getDAO(DAOFactory.DAOType.PROGRAM);
+    StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAO(DAOFactory.DAOType.STUDENT);
+    EnrollmentDAO enrollmentDAO = (EnrollmentDAO) DAOFactory.getDAO(DAOFactory.DAOType.ENROLLMENT);
 
     @Override
     public void saveProgram(ProgramsDTO programsDTO) throws UserAlreadyExistsException {
@@ -55,16 +60,14 @@ public class AcademicBOImpl  implements AcademicBO {
 
     @Override
     public void registerStudentToProgram(String studentId, String programName, double installment) {
-
+        Student student = studentDAO.getStudent(studentId);
+        Programs programs=programsDAO.getProgramsCheckName(programName);
+        Enrollment enrollment = new Enrollment(installment,programs.getFee()-installment,student,programs);
+        enrollmentDAO.save(enrollment);
     }
 
     @Override
-    public Long getCulinaryProgramCount() {
-        return 0;
-    }
-
-    @Override
-    public List<ProgramsDTO> getAllCulinaryProgram() {
-        return List.of();
+    public Long getProgramCount() {
+       return programsDAO.getProgramCount();
     }
 }

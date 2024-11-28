@@ -11,7 +11,8 @@ public interface StudentBO extends SuperBO {
     void deleteStudent(StudentDTO studentDTO) throws InUseException;
     void updateStudent(StudentDTO studentDTO);
     List<StudentDTO> getAllStudent();
-    List<ProgramsDTO> getAllCulinaryProgram();
-    void saveStudentWithProgram(StudentDTO object, String value, double v);
+    List<ProgramsDTO> getAllProgram();
+    void saveStudentWithProgram(StudentDTO object, String programName, double installment);
     StudentDTO getStudent(String studentId);
+    Long getStudentCount();
 }

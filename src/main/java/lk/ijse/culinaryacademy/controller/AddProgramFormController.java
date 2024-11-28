@@ -6,6 +6,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.culinaryacademy.tdm.StudentTm;
+import lombok.Setter;
 
 public class AddProgramFormController {
 
@@ -23,6 +25,8 @@ public class AddProgramFormController {
 
     @FXML
     private TextField txtStudentName;
+    @Setter
+    private StudentTm selectedStudent;
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
