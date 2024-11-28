@@ -216,13 +216,13 @@ public class ProgramFormController {
 
     @FXML
     void txtNameOnAction(ActionEvent event) {
-
+        txtDuration.requestFocus();
     }
     private boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.STUDENTID, txtId)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtName)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.MONTH, txtDuration)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtFee)) return false;
+        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.PROGRAMID, txtId)) return false;
+        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.NAME, txtName)) return false;
+        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.MONTH, txtDuration)) return false;
+        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.PRICE, txtFee)) return false;
         return true;
     }
 

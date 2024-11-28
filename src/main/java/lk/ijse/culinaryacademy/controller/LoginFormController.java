@@ -61,7 +61,7 @@ public class LoginFormController {
     void loginOnAction(ActionEvent event) {
         if (!inputUserName.getText().isEmpty() && !inputPassword.getText().isEmpty()) {
             try {
-                UserDTO loginUser = AuthenticationBO.getUser(inputUserName.getText().trim());
+                UserDTO loginUser = authenticationBO.getUser(inputUserName.getText().trim());
                 if (PasswordStorage.checkPassword(inputPassword.getText().trim(), loginUser.getPassword())){
                     openMainForm();
                     userDTO = loginUser;

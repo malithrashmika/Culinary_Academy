@@ -9,7 +9,7 @@ import lk.ijse.culinaryacademy.exception.UserAlreadyExistsException;
 import java.util.List;
 
 public interface AuthenticationBO extends SuperBO {
-    UserDTO getUser(String userName) throws InvalidCredentialsException, InvalidCredentialsException;
+    UserDTO getUser(String userName) throws InvalidCredentialsException;
 
     void signUp(UserDTO userDTO) throws UserAlreadyExistsException, UserAlreadyExistsException;
 
