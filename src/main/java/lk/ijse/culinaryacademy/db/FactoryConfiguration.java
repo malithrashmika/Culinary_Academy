@@ -1,4 +1,5 @@
 package lk.ijse.culinaryacademy.db;
+
 import lk.ijse.culinaryacademy.entity.Enrollment;
 import lk.ijse.culinaryacademy.entity.Programs;
 import lk.ijse.culinaryacademy.entity.Student;
@@ -19,15 +20,17 @@ public class FactoryConfiguration {
             Properties properties = new Properties();
             FileInputStream input = new FileInputStream("src/main/resources/hibernate.properties");
             properties.load(input);
+
             Configuration configuration = new Configuration();
             configuration.setProperties(properties)
                     .addAnnotatedClass(User.class)
                     .addAnnotatedClass(Programs.class)
                     .addAnnotatedClass(Enrollment.class)
                     .addAnnotatedClass(Student.class);
-            sessionFactory = configuration.buildSessionFactory();
-        } catch (Exception e){
 
+            sessionFactory = configuration.buildSessionFactory();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -42,4 +45,3 @@ public class FactoryConfiguration {
         return factoryConfiguration;
     }
 }
-
