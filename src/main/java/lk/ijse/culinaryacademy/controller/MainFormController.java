@@ -37,7 +37,7 @@ public class MainFormController {
 
     public void initialize() {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/dashboard.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/dashboard.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -46,7 +46,7 @@ public class MainFormController {
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/dashboard.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/dashboard.fxml")));
             defaultDesignButton();
             changeDesignButton(btnDashboard);
         } catch (IOException e) {
@@ -70,7 +70,7 @@ public class MainFormController {
     @FXML
     void btnProgramOnAction(ActionEvent event) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/programForm.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/programForm.fxml")));
             defaultDesignButton();
             changeDesignButton(btnProgram);
         } catch (IOException e) {
@@ -81,7 +81,7 @@ public class MainFormController {
     @FXML
     void btnSettingOnAction(ActionEvent event) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/settingForm.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/settingForm.fxml")));
             defaultDesignButton();
             changeDesignButton(btnSetting);
         } catch (IOException e) {
@@ -92,7 +92,7 @@ public class MainFormController {
     @FXML
     void btnStudentOnAction(ActionEvent event) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/studentForm.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/studentForm.fxml")));
             defaultDesignButton();
             changeDesignButton(btnStudent);
         } catch (IOException e) {
@@ -103,7 +103,7 @@ public class MainFormController {
     @FXML
     void btnViewOnAction(ActionEvent event) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/viewAllForm.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/viewAllForm.fxml")));
             defaultDesignButton();
             changeDesignButton(btnView);
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public class MainFormController {
     @FXML
     void logOutAction(MouseEvent event) {
         try {
-            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/loginForm.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/loginForm.fxml")));
             Stage stage = (Stage) dashboardFrom.getScene().getWindow();
             stage.setScene(scene);
             stage.centerOnScreen();

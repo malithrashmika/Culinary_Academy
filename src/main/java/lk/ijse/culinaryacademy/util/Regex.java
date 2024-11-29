@@ -12,7 +12,7 @@ public class Regex {
             case MONTH -> "^[0-9]{1,5}$";
             case PRICE -> "^([0-9]){1,}[.]([0-9]){1,}$";
             case STUDENTID -> "^S\\d{3}$";
-            case PROGRAMID -> "^CA\\d{4}$";
+            case PROGRAMID -> "^P\\d{3}$";
         };
 
         Pattern pattern = Pattern.compile(filed);

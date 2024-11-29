@@ -51,7 +51,7 @@
       </JFXButton>
       <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="88.0" layoutY="30.0">
          <image>
-            <Image url="@asset/icon/11017676.png" />
+            <Image url="@../assets/icon/11017676.png" />
          </image>
       </ImageView>
    </children>

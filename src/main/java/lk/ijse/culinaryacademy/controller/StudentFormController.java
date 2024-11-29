@@ -122,7 +122,7 @@ public class StudentFormController {
 
     private void loadAddProgramForm(StudentTm selectedItem) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/addProgramForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addProgramForm.fxml"));
             Scene scene = new Scene(loader.load());
 
             // Get the controller for addProgramForm

@@ -147,7 +147,8 @@ public class ProgramFormController {
     void btnSaveOnAction(ActionEvent event) throws UserAlreadyExistsException {
         if (!LoginFormController.userDTO.getRole().equals("Admissions Coordinator")){
             if (isValied() && !txtId.getText().isEmpty()){
-                academicBO.saveProgram(academicBO.getProgram(txtId.getText().trim()));
+                ProgramsDTO programsDTO = new ProgramsDTO(txtId.getText(),txtName.getText(),Integer.parseInt(txtDuration.getText()),Double.parseDouble(txtFee.getText()),new ArrayList<>());
+                academicBO.saveProgram(programsDTO);
                 loadAllPrograms();
                 clearData();
             } else {
@@ -201,7 +202,7 @@ public class ProgramFormController {
 
     @FXML
     void txtIdKeyAction(KeyEvent event) {
-        Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.STUDENTID, txtId);
+        Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.PROGRAMID, txtId);
     }
 
     @FXML

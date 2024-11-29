@@ -25,7 +25,7 @@
          </font></Button>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backToLoginOnAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@asset/icon/icons8-back-50.png" />
+            <Image url="@../assets/icon/icons8-back-50.png" />
          </image>
       </ImageView>
       <RadioButton fx:id="adminCheckBox" layoutX="34.0" layoutY="210.0" mnemonicParsing="false" onAction="#adminCheckBoxOnAction" text="Admin">

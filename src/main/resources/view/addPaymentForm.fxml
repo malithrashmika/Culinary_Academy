@@ -63,7 +63,7 @@
          </font></TextField>
       <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="99.0" layoutY="37.0">
          <image>
-            <Image url="@asset/icon/education.png" />
+            <Image url="@../assets/icon/education.png" />
          </image>
       </ImageView>
    </children>

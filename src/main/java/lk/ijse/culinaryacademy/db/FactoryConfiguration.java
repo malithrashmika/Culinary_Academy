@@ -8,40 +8,30 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.io.FileInputStream;
-import java.util.Properties;
 
 public class FactoryConfiguration {
     private static FactoryConfiguration factoryConfiguration;
-    private SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
 
     private FactoryConfiguration() {
-        try {
-            Properties properties = new Properties();
-            FileInputStream input = new FileInputStream("src/main/resources/hibernate.properties");
-            properties.load(input);
+        Configuration configuration = new Configuration()
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Programs.class)
+                .addAnnotatedClass(Enrollment.class)
+                .addAnnotatedClass(Student.class);
 
-            Configuration configuration = new Configuration();
-            configuration.setProperties(properties)
-                    .addAnnotatedClass(User.class)
-                    .addAnnotatedClass(Programs.class)
-                    .addAnnotatedClass(Enrollment.class)
-                    .addAnnotatedClass(Student.class);
+        sessionFactory = configuration.buildSessionFactory();
+    }
 
-            sessionFactory = configuration.buildSessionFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+    public static FactoryConfiguration getInstance() {
+        return (factoryConfiguration == null) ? factoryConfiguration =
+                new FactoryConfiguration() : factoryConfiguration;
+
     }
 
     public Session getSession() {
         return sessionFactory.openSession();
     }
 
-    public static FactoryConfiguration getInstance() {
-        if (factoryConfiguration == null) {
-            factoryConfiguration = new FactoryConfiguration();
-        }
-        return factoryConfiguration;
-    }
 }

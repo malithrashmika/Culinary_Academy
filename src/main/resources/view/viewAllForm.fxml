@@ -19,7 +19,7 @@
       </Label>
       <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="55.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@asset/icon/seo.png" />
+            <Image url="@../assets/icon/seo.png" />
          </image>
       </ImageView>
       <ChoiceBox fx:id="selectPrgramChoiceBox" layoutX="264.0" layoutY="167.0" prefHeight="24.0" prefWidth="204.0" />
@@ -52,7 +52,7 @@
          <children>
             <ImageView fx:id="viewAll" fitHeight="24.0" fitWidth="77.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@asset/icon/loupe.png" />
+                  <Image url="@../assets/icon/loupe.png" />
                </image>
             </ImageView>
          </children>

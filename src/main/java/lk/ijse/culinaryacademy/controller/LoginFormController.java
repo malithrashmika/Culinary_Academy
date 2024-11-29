@@ -41,7 +41,7 @@ public class LoginFormController {
     @FXML
     void goToSignUpOnAction(MouseEvent event) {
         try {
-            loginForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/signUpForm.fxml")));
+            loginForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/view/signUpForm.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -78,7 +78,7 @@ public class LoginFormController {
 
     private void openMainForm() {
         try {
-            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/mainForm.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/mainForm.fxml")));
             Stage stage = (Stage) fullLoginForm.getScene().getWindow();
             stage.setScene(scene);
             stage.centerOnScreen();

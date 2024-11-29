@@ -54,7 +54,7 @@ public class SignUpFormController {
     @FXML
     void backToLoginOnAction(MouseEvent event) {
         try {
-            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/loginForm.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/loginForm.fxml")));
             Stage stage = (Stage) signUpForm.getScene().getWindow();
             stage.setScene(scene);
             stage.show();

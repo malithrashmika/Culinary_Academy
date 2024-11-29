@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="364.0" fitWidth="315.0" layoutX="24.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@asset/Leonardo_Phoenix_A_circular_logo_for_a_culinary_academy_featur_2.jpg" />
+            <Image url="@../assets/Leonardo_Phoenix_A_circular_logo_for_a_culinary_academy_featur_2.jpg" />
          </image>
       </ImageView>
       <AnchorPane fx:id="loginForm" layoutX="356.0" layoutY="111.0" prefHeight="315.0" prefWidth="298.0" style="-fx-background-color: #5f6041;">

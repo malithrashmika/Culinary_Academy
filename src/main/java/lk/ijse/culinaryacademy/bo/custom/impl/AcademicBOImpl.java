@@ -61,10 +61,11 @@ public class AcademicBOImpl  implements AcademicBO {
     @Override
     public void registerStudentToProgram(String studentId, String programName, double installment) {
         Student student = studentDAO.getStudent(studentId);
-        Programs programs=programsDAO.getProgramsCheckName(programName);
-        Enrollment enrollment = new Enrollment(installment,programs.getFee()-installment,student,programs);
+        Programs programs = programsDAO.getProgramsCheckName(programName);
+        Enrollment enrollment = new Enrollment(installment, programs.getFee() - installment, student, programs);
         enrollmentDAO.save(enrollment);
     }
+
 
     @Override
     public Long getProgramCount() {

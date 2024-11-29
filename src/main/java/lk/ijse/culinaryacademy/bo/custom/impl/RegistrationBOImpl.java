@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationBOImpl implements RegistrationBO {
-    ProgramsDAO programsDAO= (ProgramsDAO) DAOFactory.getDAO(DAOFactory.DAOType.STUDENT);
+    ProgramsDAO programsDAO= (ProgramsDAO) DAOFactory.getDAO(DAOFactory.DAOType.PROGRAM);
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAO(DAOFactory.DAOType.STUDENT);
     EnrollmentDAO enrollmentDAO = (EnrollmentDAO) DAOFactory.getDAO(DAOFactory.DAOType.ENROLLMENT);
     QueryDAO queryDAO = (QueryDAO) DAOFactory.getDAO(DAOFactory.DAOType.QUERY);

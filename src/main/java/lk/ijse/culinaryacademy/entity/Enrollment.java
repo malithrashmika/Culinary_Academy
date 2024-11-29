@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,7 @@ public class Enrollment {
 
     @ManyToOne
     @JoinColumn(name = "program_id")
-    private Programs programs;
+    private Programs programs; // Keep this as it is
 
     public Enrollment(double firstInstallment, double balance, Student student, Programs programs) {
         this.firstInstallment = firstInstallment;
@@ -31,4 +30,5 @@ public class Enrollment {
         this.student = student;
         this.programs = programs;
     }
+
 }

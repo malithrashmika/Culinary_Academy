@@ -11,7 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-
 public class Programs {
     @Id
     private String programId;
@@ -19,7 +18,7 @@ public class Programs {
     private int duration;
     private double fee;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "program",cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "programs", cascade = CascadeType.ALL)
     private List<Enrollment> enrollments;
-
 }
+
