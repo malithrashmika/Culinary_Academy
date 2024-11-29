@@ -10,4 +10,5 @@ public interface CrudDAO<T> extends SuperDAO {
     void update(T t);
     void delete(T t) throws InUseException;
     List<T>getAll();
+
 }

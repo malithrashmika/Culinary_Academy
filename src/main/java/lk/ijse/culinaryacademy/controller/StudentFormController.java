@@ -47,6 +47,13 @@ public class StudentFormController {
     private TableColumn<?, ?> colTel;
 
     @FXML
+    private TableColumn<?, ?> colADD;
+
+
+    @FXML
+    private TableColumn<?, ?> colinstallment;
+
+    @FXML
     private ChoiceBox<String> programChoiceBox;
 
     @FXML
@@ -82,6 +89,12 @@ public class StudentFormController {
         setCellValueFactory();
         loadAllStudent();
         setChoiceBoxData();
+        generateStudentId();
+    }
+
+    private void generateStudentId() {
+        String studentId = studentBO.getGeneratedStudentId(); // Call BO to get the generated ID
+        txtId.setText(studentId);
     }
 
     private void setChoiceBoxData() {
@@ -91,6 +104,8 @@ public class StudentFormController {
             programName.add(program.getProgramName());
         }
         programChoiceBox.setItems(programName);
+        programChoiceBox.setItems(FXCollections.observableArrayList(programName));  // If programList is a List of Program objects
+
     }
 
 
@@ -147,6 +162,8 @@ public class StudentFormController {
       colTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
       colRegisterDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
       colProgram.setCellValueFactory(new PropertyValueFactory<>("program"));
+      colinstallment.setCellValueFactory(new PropertyValueFactory<>("installment"));
+      colADD.setCellValueFactory(new PropertyValueFactory<>("program"));
     }
 
     private void clearData(){
@@ -168,8 +185,10 @@ public class StudentFormController {
     void btnDeleteOnAction(ActionEvent event) throws InUseException {
         if (isValidStudent()){
             studentBO.deleteStudent(studentBO.getStudent(txtId.getText().trim()));
-            loadAllStudent();
             clearData();
+            loadAllStudent();
+            generateStudentId();
+
         }
     }
 
@@ -182,6 +201,7 @@ public class StudentFormController {
             studentBO.saveStudentWithProgram(getObject(),programChoiceBox.getValue(),Double.parseDouble(txtInstallment.getText()));
             clearData();
             loadAllStudent();
+            generateStudentId();
         } else {
             new Alert(Alert.AlertType.WARNING,"Please enter all the fields before saving!").show();
         }
@@ -193,20 +213,37 @@ public class StudentFormController {
             studentBO.updateStudent(getObject());
             clearData();
             loadAllStudent();
+            generateStudentId();
         }
     }
 
     @FXML
     void tblStudentOnClickAction(MouseEvent event) {
         StudentTm selectedItem = tblStudent.getSelectionModel().getSelectedItem();
+
         if (selectedItem != null) {
+            // Set the student ID, name, address, and phone number
             txtId.setText(selectedItem.getStudentId());
             txtName.setText(selectedItem.getName());
             txtAddress.setText(selectedItem.getAddress());
             txtTel.setText(String.valueOf(selectedItem.getTel()));
-            registerDatePicker.setValue(selectedItem.getRegistrationDate().toLocalDate());
+
+            // Set the registration date
+            if (selectedItem.getRegistrationDate() != null) {
+                registerDatePicker.setValue(selectedItem.getRegistrationDate().toLocalDate());
+            } else {
+                registerDatePicker.setValue(null);
+            }
+
+            // Set the program in the ChoiceBox (program is now a String or Program object)
+            programChoiceBox.setValue(String.valueOf(selectedItem.getProgram()));  // Assuming 'program' is a String or Program object
+
+            // Set the installment amount (if available)
+            txtInstallment.setText(txtInstallment.getSelectedText());  // Assuming installment is a double
         }
     }
+
+
 
 
 
@@ -252,11 +289,11 @@ public class StudentFormController {
         if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.ADDRESS, txtAddress)) return false;
         if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.TEL, txtTel)) return false;
         if (txtId.getText().isEmpty() && registerDatePicker.getValue() == null) return false;
+        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.PRICE, txtInstallment)) return false;
         return true;
     }
 
     private boolean isValidStudent() {
-        if (!Regex.setTextColor(lk.ijse.culinaryacademy.util.TextField.PRICE, txtInstallment)) return false;
         if (programChoiceBox.getValue() == null) return false;
         return true;
     }

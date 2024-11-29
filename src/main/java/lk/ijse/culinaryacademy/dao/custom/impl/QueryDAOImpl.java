@@ -13,24 +13,46 @@ import java.util.List;
 public class QueryDAOImpl implements QueryDAO {
     @Override
     public List<Student> getAllProgramsStudent() {
-        List<Student> students=new ArrayList<>();
+        List<Student> students = new ArrayList<>();
 
-//        Session session = FactoryConfiguration.getInstance().getSession();
-//        Transaction transaction = session.beginTransaction();
-//
-//        String hqlProgramCount = "select count(*) from Programs";
-//        Query<Long> counthql=session.createQuery(hqlProgramCount, Long.class);
-//        Long total=counthql.uniqueResult();
-//
-//        String hql="SELECT Student FROM Student s JOIN S.enrollments e GROUP BY s.studentId HAVING COUNT (DISTINCT e.programs.programId) =:totalPrograms";
-//
-//        Query <Student> query= session.createQuery(hql, Student.class);
-//        query.setParameter("totalPrograms", total);
-//
-//        students=query.getResultList();
-//        transaction.commit();
+        // Initialize session and transaction
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            // Step 1: Get the total count of programs
+            String hqlProgramCount = "SELECT COUNT(p.programId) FROM Programs p";
+            Query<Long> countQuery = session.createQuery(hqlProgramCount, Long.class);
+            Long totalPrograms = countQuery.uniqueResult();
+
+            // Step 2: Fetch students enrolled in all programs
+            String hql = "SELECT s FROM Student s " +
+                    "JOIN s.enrollments e " +
+                    "GROUP BY s.studentId " +
+                    "HAVING COUNT(DISTINCT e.programs.programId) = :totalPrograms";
+
+            Query<Student> query = session.createQuery(hql, Student.class);
+            query.setParameter("totalPrograms", totalPrograms);
+
+            // Execute the query and get the results
+            students = query.getResultList();
+
+            // Commit the transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
         return students;
     }
+
 
     @Override
     public List<Object[]> getAllEqualByProgramName(String programName) {

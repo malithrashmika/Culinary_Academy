@@ -71,4 +71,9 @@ public class AcademicBOImpl  implements AcademicBO {
     public Long getProgramCount() {
        return programsDAO.getProgramCount();
     }
+
+    @Override
+    public String getGeneratedProgramId() {
+        return programsDAO.generateProgramId();
+    }
 }

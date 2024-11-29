@@ -15,4 +15,5 @@ public interface StudentBO extends SuperBO {
     void saveStudentWithProgram(StudentDTO object, String programName, double installment);
     StudentDTO getStudent(String studentId);
     Long getStudentCount();
+    String getGeneratedStudentId();
 }

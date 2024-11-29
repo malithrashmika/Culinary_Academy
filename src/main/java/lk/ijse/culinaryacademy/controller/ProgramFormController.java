@@ -55,6 +55,12 @@ public class ProgramFormController {
     public void initialize() {
         setCellValueFactory();
         loadAllPrograms();
+        generateProgramId();
+    }
+
+    private void generateProgramId() {
+        String programId =academicBO.getGeneratedProgramId(); // Call BO to get the generated ID
+        txtId.setText(programId);
     }
 
     private void setCellValueFactory() {
@@ -133,8 +139,10 @@ public class ProgramFormController {
         if (!LoginFormController.userDTO.getRole().equals("Admissions Coordinator")){
             if (isValied() && !txtId.getText().isEmpty()){
                 academicBO.deleteProgram(academicBO.getProgram(txtId.getText().trim()));
-                loadAllPrograms();
                 clearData();
+                loadAllPrograms();
+                generateProgramId();
+
             } else {
                 new Alert(Alert.AlertType.WARNING,"Please Enter All Fields !!").show();
             }
@@ -149,8 +157,10 @@ public class ProgramFormController {
             if (isValied() && !txtId.getText().isEmpty()){
                 ProgramsDTO programsDTO = new ProgramsDTO(txtId.getText(),txtName.getText(),Integer.parseInt(txtDuration.getText()),Double.parseDouble(txtFee.getText()),new ArrayList<>());
                 academicBO.saveProgram(programsDTO);
-                loadAllPrograms();
                 clearData();
+                loadAllPrograms();
+                generateProgramId();
+
             } else {
                 new Alert(Alert.AlertType.WARNING,"Please Enter All Fields !!").show();
             }
@@ -164,8 +174,10 @@ public class ProgramFormController {
         if (!LoginFormController.userDTO.getRole().equals("Admissions Coordinator")){
             if (isValied() && !txtId.getText().isEmpty()){
                 academicBO.updateProgram(academicBO.getProgram(txtId.getText().trim()));
-                loadAllPrograms();
                 clearData();
+                loadAllPrograms();
+                generateProgramId();
+
             } else {
                 new Alert(Alert.AlertType.WARNING,"Please Enter All Fields !!").show();
             }

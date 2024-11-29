@@ -103,4 +103,32 @@ public class StudentDAOImpl implements StudentDAO {
 
         return count;
     }
+
+    @Override
+    public String generateStudentId() {
+        String lastId = ""; // Holds the last student ID from the database
+        String newId;
+
+        try (Session session = FactoryConfiguration.getInstance().getSession()) {
+            Query<String> query = session.createQuery("SELECT s.studentId FROM Student s ORDER BY s.studentId DESC", String.class);
+            query.setMaxResults(1); // Fetch only the latest studentId
+            lastId = query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (lastId != null && !lastId.isEmpty()) {
+            // Extract the numeric part from the last ID
+            String numericPart = lastId.replaceAll("[^\\d]", ""); // Remove non-numeric characters
+            int nextId = Integer.parseInt(numericPart) + 1; // Increment the numeric part
+            newId = String.format("S%03d", nextId); // Format as S001, S002, etc.
+        } else {
+            // If no IDs exist, start with S001
+            newId = "S001";
+        }
+
+        return newId;
+    }
+
+
 }

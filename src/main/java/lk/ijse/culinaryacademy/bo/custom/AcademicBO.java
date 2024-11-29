@@ -18,4 +18,6 @@ public interface AcademicBO extends SuperBO {
     // ADD PROGRAM TO STUDENT
     void registerStudentToProgram(String studentId,String programName,double installment);
     Long getProgramCount();
+
+    String getGeneratedProgramId();
 }

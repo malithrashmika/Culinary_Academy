@@ -2,6 +2,7 @@ package lk.ijse.culinaryacademy.dao.custom.impl;
 
 import lk.ijse.culinaryacademy.dao.custom.ProgramsDAO;
 import lk.ijse.culinaryacademy.db.FactoryConfiguration;
+import lk.ijse.culinaryacademy.dto.ProgramsDTO;
 import lk.ijse.culinaryacademy.entity.Programs;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,6 +17,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
         Transaction transaction = session.beginTransaction();
 
         session.save(programs);
+
         transaction.commit();
         session.close();
 
@@ -99,4 +101,32 @@ public class ProgramsDAOImpl implements ProgramsDAO {
 
         return count;
     }
+
+    @Override
+    public String generateProgramId() {
+        String lastId = ""; // Get the last ID from the database
+        String newId;
+
+        try (Session session = FactoryConfiguration.getInstance().getSession()) {
+            Query<String> query = session.createQuery("SELECT p.programId FROM Programs p ORDER BY p.programId DESC", String.class);
+            query.setMaxResults(1); // Get only the last programId
+            lastId = query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (lastId != null && !lastId.isEmpty()) {
+            // Extract the numeric part from the last ID
+            String numericPart = lastId.replaceAll("[^\\d]", ""); // Remove all non-numeric characters
+            int nextId = Integer.parseInt(numericPart) + 1; // Increment the numeric part
+            newId = String.format("P%03d", nextId); // Format as P001, P002, etc.
+        } else {
+            // If no IDs exist, start with P001
+            newId = "P001";
+        }
+
+        return newId;
+    }
+
 }
+
