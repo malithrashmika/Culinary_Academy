@@ -54,24 +54,20 @@ public class DashboardController {
 
     private void loadTableData() {
         // Clear any existing data in the table
-        tblStudyAll.getItems().clear();
+        tblStudyAll.getItems();
 
         // Fetch student data from the BO layer
-        List<StudentDTO> allProgramStudents = registrationBO.getAllProgramStudents();
-
-        // Check if the list is null or empty
-        if (allProgramStudents == null || allProgramStudents.isEmpty()) {
-            System.out.println("No students found."); // Debugging
-            lblStudentCount.setText("0");
-            return; // Exit the method if no data is found
-        }
+        List<StudentDTO> allProgramStudents = studentBO.getAllStudent();
 
         // Create an ObservableList to hold the table items
         ObservableList<StudyAllStudentTm> studentTms = FXCollections.observableArrayList();
 
         // Map StudentDTO objects to StudyAllStudentTm objects and add them to the ObservableList
         for (StudentDTO studentDTO : allProgramStudents) {
-            System.out.println("Loaded Student: " + studentDTO.getName()); // Debugging
+            // Log each student for debugging
+            System.out.println("Loaded Student: " + studentDTO.getName() + ", ID: " + studentDTO.getStudentId() + ", Reg Date: " + studentDTO.getRegistrationDate());
+
+            // Add the mapped object to the ObservableList
             studentTms.add(new StudyAllStudentTm(
                     studentDTO.getStudentId(),
                     studentDTO.getName(),
@@ -87,10 +83,10 @@ public class DashboardController {
     }
 
 
+
     private void setTotals() {
         lblTotalPrograms.setText(String.valueOf(academicBO.getProgramCount()));
         lblTotalStudent.setText(String.valueOf(studentBO.getStudentCount()));
-        lblStudentCount.setText(String.valueOf(studentBO.getStudentCount()));
     }
 
     private void setCellValueFactory() {
