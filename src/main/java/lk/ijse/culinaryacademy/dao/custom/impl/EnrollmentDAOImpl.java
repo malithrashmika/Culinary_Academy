@@ -33,14 +33,28 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
 
     @Override
     public Enrollment getEnrollment(String studentId, String programName) {
-       Enrollment enrollment =null;
-       Session session = FactoryConfiguration.getInstance().getSession();
-       Transaction transaction = session.beginTransaction();
+        Enrollment enrollment = null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
 
-       String hql = "SELECT Enrollment FROM Enrollment e JOIN e.student s JOIN e.programs p WHERE p.studentId = :studentId AND p.programName = :programName";
-       enrollment=session.createQuery(hql,Enrollment.class).setParameter("studentId",studentId).setParameter("programName",programName).uniqueResult();
-       transaction.commit();
-       session.close();
-       return enrollment;
+        try {
+            String hql = "SELECT e FROM Enrollment e " +
+                    "JOIN e.student s " +
+                    "JOIN e.programs p " +
+                    "WHERE s.studentId = :studentId AND p.programName = :programName";
+
+            enrollment = session.createQuery(hql, Enrollment.class)
+                    .setParameter("studentId", studentId)
+                    .setParameter("programName", programName)
+                    .uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return enrollment;
     }
+
 }

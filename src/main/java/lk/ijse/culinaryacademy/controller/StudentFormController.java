@@ -90,6 +90,8 @@ public class StudentFormController {
         loadAllStudent();
         setChoiceBoxData();
         generateStudentId();
+
+        registerDatePicker.setValue(java.time.LocalDate.now());
     }
 
     private void generateStudentId() {
@@ -99,12 +101,16 @@ public class StudentFormController {
 
     private void setChoiceBoxData() {
         List<ProgramsDTO> programs=studentBO.getAllProgram();
-        ObservableList<String> programName= FXCollections.observableArrayList();
-        for(ProgramsDTO program:programs){
-            programName.add(program.getProgramName());
+        try {
+            ObservableList<String> programName= FXCollections.observableArrayList();
+            for(ProgramsDTO program:programs){
+                programName.add(program.getProgramName());
+            }
+            programChoiceBox.setItems(programName);
+            programChoiceBox.setItems(FXCollections.observableArrayList(programName));  // If programList is a List of Program objects
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "There is No Programs! please,Add programs first!").show();
         }
-        programChoiceBox.setItems(programName);
-        programChoiceBox.setItems(FXCollections.observableArrayList(programName));  // If programList is a List of Program objects
 
     }
 
@@ -162,8 +168,6 @@ public class StudentFormController {
       colTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
       colRegisterDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
       colProgram.setCellValueFactory(new PropertyValueFactory<>("program"));
-      colinstallment.setCellValueFactory(new PropertyValueFactory<>("installment"));
-      colADD.setCellValueFactory(new PropertyValueFactory<>("program"));
     }
 
     private void clearData(){
@@ -234,12 +238,8 @@ public class StudentFormController {
             } else {
                 registerDatePicker.setValue(null);
             }
-
             // Set the program in the ChoiceBox (program is now a String or Program object)
             programChoiceBox.setValue(String.valueOf(selectedItem.getProgram()));  // Assuming 'program' is a String or Program object
-
-            // Set the installment amount (if available)
-            txtInstallment.setText(txtInstallment.getSelectedText());  // Assuming installment is a double
         }
     }
 

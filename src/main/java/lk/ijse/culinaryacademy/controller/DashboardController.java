@@ -1,5 +1,6 @@
 package lk.ijse.culinaryacademy.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -52,20 +53,44 @@ public class DashboardController {
     }
 
     private void loadTableData() {
+        // Clear any existing data in the table
         tblStudyAll.getItems().clear();
-        ObservableList<StudyAllStudentTm> studentTms = tblStudyAll.getItems();
+
+        // Fetch student data from the BO layer
         List<StudentDTO> allProgramStudents = registrationBO.getAllProgramStudents();
 
-        for (StudentDTO studentDTO : allProgramStudents) {
-            studentTms.add(new StudyAllStudentTm(studentDTO.getStudentId(),studentDTO.getName(),studentDTO.getRegistrationDate()));
+        // Check if the list is null or empty
+        if (allProgramStudents == null || allProgramStudents.isEmpty()) {
+            System.out.println("No students found."); // Debugging
+            lblStudentCount.setText("0");
+            return; // Exit the method if no data is found
         }
+
+        // Create an ObservableList to hold the table items
+        ObservableList<StudyAllStudentTm> studentTms = FXCollections.observableArrayList();
+
+        // Map StudentDTO objects to StudyAllStudentTm objects and add them to the ObservableList
+        for (StudentDTO studentDTO : allProgramStudents) {
+            System.out.println("Loaded Student: " + studentDTO.getName()); // Debugging
+            studentTms.add(new StudyAllStudentTm(
+                    studentDTO.getStudentId(),
+                    studentDTO.getName(),
+                    studentDTO.getRegistrationDate()
+            ));
+        }
+
+        // Bind the ObservableList to the TableView
         tblStudyAll.setItems(studentTms);
+
+        // Update the student count label
         lblStudentCount.setText(String.valueOf(studentTms.size()));
     }
+
 
     private void setTotals() {
         lblTotalPrograms.setText(String.valueOf(academicBO.getProgramCount()));
         lblTotalStudent.setText(String.valueOf(studentBO.getStudentCount()));
+        lblStudentCount.setText(String.valueOf(studentBO.getStudentCount()));
     }
 
     private void setCellValueFactory() {

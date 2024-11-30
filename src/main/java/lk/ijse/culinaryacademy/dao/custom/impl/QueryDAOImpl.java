@@ -14,20 +14,22 @@ public class QueryDAOImpl implements QueryDAO {
     @Override
     public List<Student> getAllProgramsStudent() {
         List<Student> students = new ArrayList<>();
-
-        // Initialize session and transaction
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
 
-            // Step 1: Get the total count of programs
+            // Fetch total number of programs
             String hqlProgramCount = "SELECT COUNT(p.programId) FROM Programs p";
-            Query<Long> countQuery = session.createQuery(hqlProgramCount, Long.class);
-            Long totalPrograms = countQuery.uniqueResult();
+            Long totalPrograms = session.createQuery(hqlProgramCount, Long.class).uniqueResult();
 
-            // Step 2: Fetch students enrolled in all programs
+            if (totalPrograms == null || totalPrograms == 0) {
+                System.out.println("No programs found in the database.");
+                return students; // Return empty list
+            }
+
+            // Fetch students enrolled in all programs
             String hql = "SELECT s FROM Student s " +
                     "JOIN s.enrollments e " +
                     "GROUP BY s.studentId " +
@@ -36,15 +38,10 @@ public class QueryDAOImpl implements QueryDAO {
             Query<Student> query = session.createQuery(hql, Student.class);
             query.setParameter("totalPrograms", totalPrograms);
 
-            // Execute the query and get the results
             students = query.getResultList();
-
-            // Commit the transaction
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
+            if (transaction != null) transaction.rollback();
             e.printStackTrace();
         } finally {
             session.close();

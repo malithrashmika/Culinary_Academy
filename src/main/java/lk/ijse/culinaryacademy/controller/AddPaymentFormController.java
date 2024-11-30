@@ -49,6 +49,7 @@ public class AddPaymentFormController {
             registrationBO.updateEnrollment(txtStudentId.getText().trim(),txtProgram.getText().trim(),Double.parseDouble(txtPayment.getText().trim()));
             new Alert(Alert.AlertType.CONFIRMATION,"Payment successfully added!").show();
             btnCancelOnAction(event);
+
         }
     }
 
